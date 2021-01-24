@@ -6,4 +6,4 @@
 6. pip freeze > requirements.txt  --> to create the requirements file
 7. create a Procfile (has no extension) with the following content: web: gunicorn app:app
 8. create runtime.txt with the following content: python-3.9.1 (you can get the latest version from here https://devcenter.heroku.com/articles/python-support#specifying-a-python-version)
-9. from the console run: notepad .gitignore
+9. from the console run: notepad .gitignore    The content of this file should be: __pycache__ (new line) virtual
