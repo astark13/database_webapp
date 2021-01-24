@@ -1,0 +1,9 @@
+1. heroku login
+2. heroku create db_height_collector
+3. heroku config --app db-height-collector --> gets the url for the postresql db from heroku
+4. .\virtual\Scripts\activate - enter the virtual environment
+5. pip install gunicorn
+6. pip freeze > requirements.txt  --> to create the requirements file
+7. create a Procfile (has no extension) with the following content: web: gunicorn app:app
+8. create runtime.txt with the following content: python-3.9.1 (you can get the latest version from here https://devcenter.heroku.com/articles/python-support#specifying-a-python-version)
+9. from the console run: notepad .gitignore

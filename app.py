@@ -18,7 +18,10 @@ app=Flask(__name__)   # "__name__" is a placeholder;\
                       # below there is a statement "if __name__=='__main__'";\
                       # "__main__" refers to the current script
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:postgres123@localhost/height_collector'
+#used for localhost
+#app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:postgres123@localhost/height_collector'
+#used for deploying app to heroku with heroku db
+app.config['SQLALCHEMY_DATABASE_URI']='postgres://ihhrfijnugkufm:ee0de98f86da0e4ae8c80124ab62ea153a16f902d5caae4c2d976aff05d2779d@ec2-18-205-122-145.compute-1.amazonaws.com:5432/d828k7epkksbl6?sslmode=require'
 db=SQLAlchemy(app)
 
 #>>> from app import db
