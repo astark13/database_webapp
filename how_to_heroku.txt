@@ -1,9 +1,21 @@
 1. heroku login
-2. heroku create db_height_collector
-3. heroku config --app db-height-collector --> gets the url for the postresql db from heroku
+2. heroku create db_height_collector --> creates the app
+3. heroku addons:create heroku-postgresql:hobby-dev --app db_height_collector  --> creates the database for the app "db_height_collector"
+3. heroku config --app db-height-collector --> gets the url for the postresql db from heroku; you must have the same or lower PostgreSQL version installed locally!!!
 4. .\virtual\Scripts\activate - enter the virtual environment
 5. pip install gunicorn
 6. pip freeze > requirements.txt  --> to create the requirements file
 7. create a Procfile (has no extension) with the following content: web: gunicorn app:app
 8. create runtime.txt with the following content: python-3.9.1 (you can get the latest version from here https://devcenter.heroku.com/articles/python-support#specifying-a-python-version)
 9. from the console run: notepad .gitignore    The content of this file should be: __pycache__ (new line) virtual
+10. create repo and push to github
+11. heroku git:remote --app db-height-collector  --> establish the repo as source for the "db-height-collector" app
+12. git push heroku master  --> push the code to heroku
+13. heroku open --> opens the remote app in the browser
+14. heroku run python --> run in terminal; runs python in the console of the remote app
+    >>>from app import db
+    >>>db.create_all()
+    >>>exit()
+15. add "C:\Program Files\PostgreSQL\13\bin" to system variables
+16. heroku pg:psql --app db-height-collector --> if the output is "... db-height-collector::DATABASE=>" you are connected to the db in heroku and can run queries here
+    select * from data;
